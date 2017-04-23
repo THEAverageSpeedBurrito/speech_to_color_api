@@ -26,9 +26,11 @@ app.listen(PORT, function () {
   console.log('Server running on port', PORT);
 });
 
-app.get('/color', (req, res) => {
-  var text = req.body.text;
+app.get('/color/:text', (req, res) => {
+  var text = req.params.text;
 
+  console.log(text);
+  
   tone_analyzer.tone({ text: text },
     function(err, tone) {
       if (err){

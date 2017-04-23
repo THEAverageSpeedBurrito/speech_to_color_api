@@ -27,10 +27,10 @@ app.listen(PORT, function () {
 });
 
 app.get('/color/:text', (req, res) => {
-  var text = req.params.text;
+  var text = decodeURI(req.params.text);
 
   console.log(text);
-  
+
   tone_analyzer.tone({ text: text },
     function(err, tone) {
       if (err){

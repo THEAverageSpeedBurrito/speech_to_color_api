@@ -27,7 +27,8 @@ app.listen(PORT, function () {
 });
 
 app.get('/color/:text', (req, res) => {
-  var text = decodeURI(req.params.text);
+  var text = decodeURI(req.params.text).replace('%20', ' ');
+
 
   console.log(text);
 

@@ -6,6 +6,9 @@ var PORT = process.env.PORT || 5000;
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
+const cors = require('cors');
+app.use(cors());
+
 // const PythonShell = require('python-shell');
 // var watsonShell = new PythonShell('watson.py');
 
@@ -26,7 +29,7 @@ app.listen(PORT, function () {
 app.get('/color', (req, res) => {
   var text = req.body.text;
 
-  tone_analyzer.tone({ text: text },
+  tone_analyzer.tone({ text: 'I am super mad' },
     function(err, tone) {
       if (err)
         console.log(err);

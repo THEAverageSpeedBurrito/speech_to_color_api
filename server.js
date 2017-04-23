@@ -29,15 +29,44 @@ app.listen(PORT, function () {
 app.get('/color', (req, res) => {
   var text = req.body.text;
 
-  tone_analyzer.tone({ text: 'I am super mad' },
+  tone_analyzer.tone({ text: 'I am super mad and also want to talk about it' },
     function(err, tone) {
-      if (err)
+      if (err){
         console.log(err);
-      else
-        res.send(JSON.stringify(tone, null, 2));
+      }else{
+        var color = getColor(tone)
+        res.send(color);
+      }
   });
 });
 
 app.get('/test', (req, res) => {
   res.send('api responding');
 });
+
+//Auxilliary functions
+
+function getColor(tones) {
+  tones = tones.document_tone.tone_categories[0].tones;
+  tones = tones.sort((a, b) => {
+    return b.score - a.score
+  })
+
+  switch(tones[0].tone_name){
+    case 'Anger':
+      return '#ff2323'
+      break
+    case 'Disgust':
+      return '#b522ff'
+      break
+    case 'Fear':
+      return '#099b1c'
+      break
+    case 'Joy':
+      return '#ffe628'
+      break
+    case 'Sadness':
+      return '#2881ff'
+      break
+  }
+}

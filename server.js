@@ -37,3 +37,7 @@ app.get('/color', (req, res) => {
         res.send(JSON.stringify(tone, null, 2));
   });
 });
+
+app.get('/test', (req, res) => {
+  res.send('api responding');
+});

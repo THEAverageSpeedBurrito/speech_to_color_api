@@ -29,7 +29,7 @@ app.listen(PORT, function () {
 app.get('/color', (req, res) => {
   var text = req.body.text;
 
-  tone_analyzer.tone({ text: 'I am super mad and also want to talk about it' },
+  tone_analyzer.tone({ text: text },
     function(err, tone) {
       if (err){
         console.log(err);

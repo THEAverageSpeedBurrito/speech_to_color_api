@@ -56,19 +56,34 @@ function getColor(tones) {
 
   switch(tones[0].tone_name){
     case 'Anger':
-      return '#ff2323'
+      return {
+        name: 'Anger',
+        color: '#ff2323'
+      }
       break
     case 'Disgust':
-      return '#b522ff'
+      return {
+        name: 'Disgust',
+        color: '#b522ff'
+      }
       break
     case 'Fear':
-      return '#099b1c'
+      return {
+        name: 'Fear',
+        color: '#099b1c'
+      }
       break
     case 'Joy':
-      return '#ffe628'
+      return {
+        name: 'Joy',
+        color: '#ffe628'
+      }
       break
     case 'Sadness':
-      return '#2881ff'
+      return {
+        name: 'Sadness',
+        color: '#2881ff'
+      }
       break
   }
 }
